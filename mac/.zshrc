@@ -112,6 +112,38 @@ source $ZSH/oh-my-zsh.sh
 alias lc="colorls"
 alias get_idf='. $HOME/dev/esp32/esp-idf/export.sh'
 
+# Dart build_runner command with flags
+dbr() {
+  if [[ $# -eq 0 ]]; then
+    echo "Usage: dbr [options]"
+    echo "  -c    Clean"
+    echo "  -b    Build with delete conflicting outputs"
+    echo "  -w    Watch mode (build with watch)"
+    echo "  -cb   Clean then build"
+    return 1
+  fi
+
+  case "$1" in
+    -c)
+      dart run build_runner clean
+      ;;
+    -b)
+      dart run build_runner build --delete-conflicting-outputs
+      ;;
+    -w)
+      dart run build_runner watch --delete-conflicting-outputs
+      ;;
+    -cb|-bc)
+      dart run build_runner clean && dart run build_runner build --delete-conflicting-outputs
+      ;;
+    *)
+      echo "Unknown option: $1"
+      echo "Use 'dbr' without arguments to see usage"
+      return 1
+      ;;
+  esac
+}
+
 export PATH="$HOME/fvm/default/bin:$PATH"
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 
