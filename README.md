@@ -10,8 +10,6 @@ Config files for:
 
 [Alacritty](https://github.com/alacritty/alacritty), [Bspwm](https://github.com/baskerville/bspwm), [Dunst](https://github.com/dunst-project/dunst), [Neofetch](https://github.com/dylanaraps/neofetch), [Picom](https://github.com/yshui/picom), [Polybar](https://github.com/polybar/polybar), [Rofi](https://github.com/davatorium/rofi),[Sxhkd](https://github.com/baskerville/sxhkd), [Zathura](https://github.com/pwmt/zathura), [Starship](https://starship.rs).
 
-
-
 **Note:** Only config files, install the tools on you own!
 
 ### **Warnings:**

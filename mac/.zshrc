@@ -1,15 +1,30 @@
-# Q pre block. Keep at the top of this file.
-[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# Easy Complete pre block. Keep at the top of this file.
+[[ -f "${HOME}/Library/Application Support/easy-complete/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/easy-complete/shell/zshrc.pre.zsh"
+# Save last directory on every directory change
+autoload -Uz add-zsh-hook
+_save_last_dir() { print -r -- "$PWD" > ~/.last_dir }
+add-zsh-hook chpwd _save_last_dir
 
-# Path to your oh-my-zsh installation.
+# On launch, go to last directory if opened in $HOME and it still exists
+if [[ "$PWD" == "$HOME" && -r ~/.last_dir ]]; then
+    _last_dir="$(<~/.last_dir)"
+    [[ -d "$_last_dir" ]] && cd "$_last_dir"
+    unset _last_dir
+fi
+
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+
+# Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
 eval "$(starship init zsh)"
 
+# Settings and secrets
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+
 # Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
+# load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
@@ -94,15 +109,18 @@ source $ZSH/oh-my-zsh.sh
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
 # else
-#   export EDITOR='mvim'
+#   export EDITOR='nvim'
 # fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# export ARCHFLAGS="-arch $(uname -m)"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# Set personal aliases, overriding those provided by Oh My Zsh libs,
+# plugins, and themes. Aliases can be placed here, though Oh My Zsh
+# users are encouraged to define aliases within a top-level file in
+# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
+# - $ZSH_CUSTOM/aliases.zsh
+# - $ZSH_CUSTOM/macos.zsh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
@@ -110,61 +128,16 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias lc="colorls"
-alias get_idf='. $HOME/dev/esp32/esp-idf/export.sh'
-
-# Dart build_runner command with flags
-dbr() {
-  if [[ $# -eq 0 ]]; then
-    echo "Usage: dbr [options]"
-    echo "  -c    Clean"
-    echo "  -b    Build with delete conflicting outputs"
-    echo "  -w    Watch mode (build with watch)"
-    echo "  -cb   Clean then build"
-    return 1
-  fi
-
-  case "$1" in
-    -c)
-      dart run build_runner clean
-      ;;
-    -b)
-      dart run build_runner build --delete-conflicting-outputs
-      ;;
-    -w)
-      dart run build_runner watch --delete-conflicting-outputs
-      ;;
-    -cb|-bc)
-      dart run build_runner clean && dart run build_runner build --delete-conflicting-outputs
-      ;;
-    *)
-      echo "Unknown option: $1"
-      echo "Use 'dbr' without arguments to see usage"
-      return 1
-      ;;
-  esac
-}
 
 export PATH="$HOME/fvm/default/bin:$PATH"
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 
-source "$HOME/.sdkman/bin/sdkman-init.sh"
-
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-
-## [Completion]
-## Completion scripts setup. Remove the following line to uninstall
-[[ -f /Users/some-user/.dart-cli-completion/zsh-config.zsh ]] && . /Users/some-user/.dart-cli-completion/zsh-config.zsh || true
-## [/Completion]
-
-# Q post block. Keep at the bottom of this file.
-[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+# Easy Complete post block. Keep near the bottom of this file.
+[[ -f "${HOME}/Library/Application Support/easy-complete/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/easy-complete/shell/zshrc.post.zsh"
