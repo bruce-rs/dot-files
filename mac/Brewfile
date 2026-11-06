@@ -18,12 +18,16 @@ brew "lcov"
 brew "onefetch"
 # SMART hard drive monitoring
 brew "smartmontools"
+# Cross-shell prompt for astronauts
+brew "starship"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
 # Mouse and keyboard sharing utility
 cask "deskflow/tap/deskflow"
 # IDE-style inline autocomplete for terminals
 cask "chen86860/tap/easy-complete", trusted: true
+# Terminal built on web technologies
+cask "hyper"
 # Plugin for AWS CLI to start and end sessions that connect to managed instances
 cask "session-manager-plugin"
 uv "zmk"

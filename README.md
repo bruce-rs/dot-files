@@ -52,3 +52,5 @@ Config files for:
 **Note:** Only config files, install the tools on you own!
 
 To use them just move the folders to your `$HOME/.config/` folder.
+
+Regenerate `Brewfile` with `brew bundle dump --file=mac/Brewfile --force --no-vscode`
