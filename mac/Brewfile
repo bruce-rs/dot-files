@@ -1,0 +1,30 @@
+tap "chen86860/tap"
+tap "deskflow/tap", trusted: true
+# Dependency manager for Cocoa projects
+brew "cocoapods"
+# Play, record, convert, and stream select audio and video codecs
+brew "ffmpeg"
+# Manage Flutter SDK versions per project
+brew "fvm"
+# GitHub command-line tool
+brew "gh"
+# Distributed revision control system
+brew "git"
+# Audit git repos for secrets
+brew "gitleaks"
+# Graphical front-end for GCC's coverage testing tool (gcov)
+brew "lcov"
+# Command-line Git information tool
+brew "onefetch"
+# SMART hard drive monitoring
+brew "smartmontools"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
+# Mouse and keyboard sharing utility
+cask "deskflow/tap/deskflow"
+# IDE-style inline autocomplete for terminals
+cask "chen86860/tap/easy-complete", trusted: true
+# Plugin for AWS CLI to start and end sessions that connect to managed instances
+cask "session-manager-plugin"
+uv "zmk"
+npm "corepack"
