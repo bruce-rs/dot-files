@@ -132,12 +132,7 @@ alias lc="colorls"
 export PATH="$HOME/fvm/default/bin:$PATH"
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+eval "$(mise activate zsh)"
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 # Easy Complete post block. Keep near the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/easy-complete/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/easy-complete/shell/zshrc.post.zsh"

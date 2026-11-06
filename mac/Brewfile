@@ -4,8 +4,6 @@ tap "deskflow/tap", trusted: true
 brew "cocoapods"
 # Play, record, convert, and stream select audio and video codecs
 brew "ffmpeg"
-# Manage Flutter SDK versions per project
-brew "fvm"
 # GitHub command-line tool
 brew "gh"
 # Distributed revision control system
@@ -14,6 +12,8 @@ brew "git"
 brew "gitleaks"
 # Graphical front-end for GCC's coverage testing tool (gcov)
 brew "lcov"
+# Polyglot runtime manager (asdf rust clone)
+brew "mise"
 # Command-line Git information tool
 brew "onefetch"
 # SMART hard drive monitoring
