@@ -129,8 +129,11 @@ source $ZSH/oh-my-zsh.sh
 
 alias lc="colorls"
 
-export PATH="$HOME/fvm/default/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH":"$HOME/.pub-cache/bin"
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 eval "$(mise activate zsh)"
 
