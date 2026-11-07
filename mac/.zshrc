@@ -127,7 +127,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias lc="colorls"
+alias lc="eza --icons --group-directories-first"
+alias ll="eza -la --icons --git --group-directories-first"
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH":"$HOME/.pub-cache/bin"
