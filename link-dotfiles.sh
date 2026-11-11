@@ -7,8 +7,8 @@
 # Usage: ./link-dotfiles.sh
 #
 # Repairing a dotfile symlink:
-# ~/.zshrc, ~/.hyper.js, ~/.config/starship.toml and ~/.config/mise/config.toml
-# are symlinks into this repo.
+# ~/.zshrc, ~/.hyper.js, ~/.config/starship.toml, ~/.config/mise/config.toml
+# and ~/.config/bat/config are symlinks into this repo.
 # A tool that saves through a temp file and rename (like `sed -i`) can replace
 # the link with a normal file. If `ls -l ~/.zshrc` shows no `->` arrow, run this
 # script. If it reports that the file differs and you want to keep the tool's
@@ -70,5 +70,6 @@ link mac/.zshrc .zshrc
 link mac/.hyper.js .hyper.js
 link mac/starship.toml .config/starship.toml
 link mac/mise/config.toml .config/mise/config.toml
+link mac/bat/config .config/bat/config
 
 exit "$problems"

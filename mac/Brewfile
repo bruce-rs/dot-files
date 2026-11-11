@@ -2,6 +2,10 @@ tap "chen86860/tap"
 tap "deskflow/tap", trusted: true
 # Terminal bandwidth utilization tool
 brew "bandwhich"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Resource monitor. C++ version and continuation of bashtop and bpytop
+brew "btop"
 # Dependency manager for Cocoa projects
 brew "cocoapods"
 # Modern, maintained replacement for ls
@@ -14,6 +18,8 @@ brew "gh"
 brew "git"
 # Audit git repos for secrets
 brew "gitleaks"
+# Simple terminal UI for git commands
+brew "lazygit"
 # Graphical front-end for GCC's coverage testing tool (gcov)
 brew "lcov"
 # Polyglot runtime manager (asdf rust clone)
@@ -34,6 +40,8 @@ brew "uv"
 cask "android-studio"
 # Web browser focusing on privacy
 cask "brave-browser"
+# Anthropic's official Claude AI desktop app
+cask "claude"
 # Mouse and keyboard sharing utility
 cask "deskflow/tap/deskflow", trusted: true
 # App to build and share containerised applications and microservices
@@ -47,6 +55,8 @@ cask "google-chrome"
 cask "hyper"
 # Java IDE by JetBrains
 cask "intellij-idea"
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
 # Administration and development platform for PostgreSQL
 cask "pgadmin4"
 # Collaboration platform for API development
@@ -55,6 +65,8 @@ cask "postman"
 cask "raycast"
 # Plugin for AWS CLI to start and end sessions that connect to managed instances
 cask "session-manager-plugin"
+# Music streaming service
+cask "spotify"
 # Open-source code editor
 cask "visual-studio-code"
 uv "zmk"
